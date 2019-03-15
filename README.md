@@ -7,4 +7,4 @@ WordPress/ClassicPress plugin for the Sequoia Pacific Realty website.
 ![PHP tested on version 7.2](https://img.shields.io/badge/PHP-tested%207.2-8892bf.svg?style=flat-square)
 ![ACF Pro Ready](https://img.shields.io/badge/ACF%20Pro-ready-00d3ae.svg?style=flat-square)
 
-![](https://raw.githubusercontent.com/ControlledChaos/seq-pac-plugin/master/assets/images/seq-pac-logo.jpg)
+![](https://raw.githubusercontent.com/ControlledChaos/seq-pac-plugin/master/assets/images/seq-pac-logo.png)
