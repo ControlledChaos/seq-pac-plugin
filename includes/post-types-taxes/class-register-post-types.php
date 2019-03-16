@@ -35,13 +35,13 @@ final class Post_Types_Register {
 	 */
 	public function __construct() {
 
-        // Register custom post types.
+        // Register listing types.
 		add_action( 'init', [ $this, 'register' ] );
 
 	}
 
     /**
-     * Register custom post types.
+     * Register post types.
      *
      * Note for WordPress 5.0 or greater:
      * If you want your post type to adopt the block edit_form_image_editor
@@ -54,56 +54,50 @@ final class Post_Types_Register {
     public function register() {
 
         /**
-         * Post Type: Sample custom post (Custom Posts).
-         *
-         * Renaming:
-         * Search case "Custom Post" and replace with your post type capitalized name.
-         * Search case "custom post" and replace with your post type lowercase name.
-         * Search case "spp_post_type" and replace with your post type database name.
-         * Search case "custom-posts" and replace with your post type archive permalink slug.
+         * Post Type: Listings
          */
 
         $labels = [
-            'name'                  => __( 'Custom Posts', 'seq-pac-plugin' ),
-            'singular_name'         => __( 'Custom Post', 'seq-pac-plugin' ),
-            'menu_name'             => __( 'Custom Posts', 'seq-pac-plugin' ),
-            'all_items'             => __( 'All Custom Posts', 'seq-pac-plugin' ),
+            'name'                  => __( 'Listings', 'seq-pac-plugin' ),
+            'singular_name'         => __( 'Listing', 'seq-pac-plugin' ),
+            'menu_name'             => __( 'Listings', 'seq-pac-plugin' ),
+            'all_items'             => __( 'All Listings', 'seq-pac-plugin' ),
             'add_new'               => __( 'Add New', 'seq-pac-plugin' ),
-            'add_new_item'          => __( 'Add New Custom Post', 'seq-pac-plugin' ),
-            'edit_item'             => __( 'Edit Custom Post', 'seq-pac-plugin' ),
-            'new_item'              => __( 'New Custom Post', 'seq-pac-plugin' ),
-            'view_item'             => __( 'View Custom Post', 'seq-pac-plugin' ),
-            'view_items'            => __( 'View Custom Posts', 'seq-pac-plugin' ),
-            'search_items'          => __( 'Search Custom Posts', 'seq-pac-plugin' ),
-            'not_found'             => __( 'No Custom Posts Found', 'seq-pac-plugin' ),
-            'not_found_in_trash'    => __( 'No Custom Posts Found in Trash', 'seq-pac-plugin' ),
-            'parent_item_colon'     => __( 'Parent Custom Post', 'seq-pac-plugin' ),
-            'featured_image'        => __( 'Featured image for this custom post', 'seq-pac-plugin' ),
-            'set_featured_image'    => __( 'Set featured image for this custom post', 'seq-pac-plugin' ),
-            'remove_featured_image' => __( 'Remove featured image for this custom post', 'seq-pac-plugin' ),
-            'use_featured_image'    => __( 'Use as featured image for this custom post', 'seq-pac-plugin' ),
-            'archives'              => __( 'Custom Post archives', 'seq-pac-plugin' ),
-            'insert_into_item'      => __( 'Insert into Custom Post', 'seq-pac-plugin' ),
-            'uploaded_to_this_item' => __( 'Uploaded to this Custom Post', 'seq-pac-plugin' ),
-            'filter_items_list'     => __( 'Filter Custom Posts', 'seq-pac-plugin' ),
-            'items_list_navigation' => __( 'Custom Posts list navigation', 'seq-pac-plugin' ),
-            'items_list'            => __( 'Custom Posts List', 'seq-pac-plugin' ),
-            'attributes'            => __( 'Custom Post Attributes', 'seq-pac-plugin' ),
-            'parent_item_colon'     => __( 'Parent Custom Post', 'seq-pac-plugin' ),
+            'add_new_item'          => __( 'Add New Listing', 'seq-pac-plugin' ),
+            'edit_item'             => __( 'Edit Listing', 'seq-pac-plugin' ),
+            'new_item'              => __( 'New Listing', 'seq-pac-plugin' ),
+            'view_item'             => __( 'View Listing', 'seq-pac-plugin' ),
+            'view_items'            => __( 'View Listings', 'seq-pac-plugin' ),
+            'search_items'          => __( 'Search Listings', 'seq-pac-plugin' ),
+            'not_found'             => __( 'No Listings Found', 'seq-pac-plugin' ),
+            'not_found_in_trash'    => __( 'No Listings Found in Trash', 'seq-pac-plugin' ),
+            'parent_item_colon'     => __( 'Parent Listing', 'seq-pac-plugin' ),
+            'featured_image'        => __( 'Featured image for this listing', 'seq-pac-plugin' ),
+            'set_featured_image'    => __( 'Set featured image for this listing', 'seq-pac-plugin' ),
+            'remove_featured_image' => __( 'Remove featured image for this listing', 'seq-pac-plugin' ),
+            'use_featured_image'    => __( 'Use as featured image for this listing', 'seq-pac-plugin' ),
+            'archives'              => __( 'Listing archives', 'seq-pac-plugin' ),
+            'insert_into_item'      => __( 'Insert into Listing', 'seq-pac-plugin' ),
+            'uploaded_to_this_item' => __( 'Uploaded to this Listing', 'seq-pac-plugin' ),
+            'filter_items_list'     => __( 'Filter Listings', 'seq-pac-plugin' ),
+            'items_list_navigation' => __( 'Listings list navigation', 'seq-pac-plugin' ),
+            'items_list'            => __( 'Listings List', 'seq-pac-plugin' ),
+            'attributes'            => __( 'Listing Attributes', 'seq-pac-plugin' ),
+            'parent_item_colon'     => __( 'Parent Listing', 'seq-pac-plugin' ),
         ];
 
         // Apply a filter to labels for customization.
-        $labels = apply_filters( 'spp_post_type_labels', $labels );
+        $labels = apply_filters( 'listing_labels', $labels );
 
         $options = [
-            'label'               => __( 'Custom Posts', 'seq-pac-plugin' ),
+            'label'               => __( 'Listings', 'seq-pac-plugin' ),
             'labels'              => $labels,
             'description'         => __( 'Custom post type description.', 'seq-pac-plugin' ),
             'public'              => true,
             'publicly_queryable'  => true,
             'show_ui'             => true,
             'show_in_rest'        => false,
-            'rest_base'           => 'spp_post_type_rest_api',
+            'rest_base'           => 'listing_rest_api',
             'has_archive'         => true,
             'show_in_menu'        => true,
             'exclude_from_search' => false,
@@ -111,12 +105,12 @@ final class Post_Types_Register {
             'map_meta_cap'        => true,
             'hierarchical'        => false,
             'rewrite'             => [
-                'slug'       => 'custom-posts',
+                'slug'       => 'listings',
                 'with_front' => true
             ],
-            'query_var'           => 'spp_post_type',
+            'query_var'           => 'listing',
             'menu_position'       => 5,
-            'menu_icon'           => 'dashicons-admin-post',
+            'menu_icon'           => 'dashicons-exerpt-view',
             'supports'            => [
                 'title',
                 'editor',
@@ -131,22 +125,103 @@ final class Post_Types_Register {
                 'post-formats'
             ],
             'taxonomies'          => [
-                'category',
-                'post_tag',
-                'spp_taxonomy' // Change to your custom taxonomy name.
+                'listing_location',
+                'post_tag'
             ],
         ];
 
         // Apply a filter to arguments for customization.
-        $options = apply_filters( 'spp_post_type_args', $options );
+        $options = apply_filters( 'listing_args', $options );
+
+        // Register the post type.
+        register_post_type(
+            'listing',
+            $options
+        );
 
         /**
-         * Register the post type
-         *
-         * Maximum 20 characters, cannot contain capital letters or spaces.
+         * Post Type: Rentals
          */
+
+        $labels = [
+            'name'                  => __( 'Rentals', 'seq-pac-plugin' ),
+            'singular_name'         => __( 'Rental', 'seq-pac-plugin' ),
+            'menu_name'             => __( 'Rentals', 'seq-pac-plugin' ),
+            'all_items'             => __( 'All Rentals', 'seq-pac-plugin' ),
+            'add_new'               => __( 'Add New', 'seq-pac-plugin' ),
+            'add_new_item'          => __( 'Add New Rental', 'seq-pac-plugin' ),
+            'edit_item'             => __( 'Edit Rental', 'seq-pac-plugin' ),
+            'new_item'              => __( 'New Rental', 'seq-pac-plugin' ),
+            'view_item'             => __( 'View Rental', 'seq-pac-plugin' ),
+            'view_items'            => __( 'View Rentals', 'seq-pac-plugin' ),
+            'search_items'          => __( 'Search Rentals', 'seq-pac-plugin' ),
+            'not_found'             => __( 'No Rentals Found', 'seq-pac-plugin' ),
+            'not_found_in_trash'    => __( 'No Rentals Found in Trash', 'seq-pac-plugin' ),
+            'parent_item_colon'     => __( 'Parent Rental', 'seq-pac-plugin' ),
+            'featured_image'        => __( 'Featured image for this rental', 'seq-pac-plugin' ),
+            'set_featured_image'    => __( 'Set featured image for this rental', 'seq-pac-plugin' ),
+            'remove_featured_image' => __( 'Remove featured image for this rental', 'seq-pac-plugin' ),
+            'use_featured_image'    => __( 'Use as featured image for this rental', 'seq-pac-plugin' ),
+            'archives'              => __( 'Rental archives', 'seq-pac-plugin' ),
+            'insert_into_item'      => __( 'Insert into Rental', 'seq-pac-plugin' ),
+            'uploaded_to_this_item' => __( 'Uploaded to this Rental', 'seq-pac-plugin' ),
+            'filter_items_list'     => __( 'Filter Rentals', 'seq-pac-plugin' ),
+            'items_list_navigation' => __( 'Rentals list navigation', 'seq-pac-plugin' ),
+            'items_list'            => __( 'Rentals List', 'seq-pac-plugin' ),
+            'attributes'            => __( 'Rental Attributes', 'seq-pac-plugin' ),
+            'parent_item_colon'     => __( 'Parent Rental', 'seq-pac-plugin' ),
+        ];
+
+        // Apply a filter to labels for customization.
+        $labels = apply_filters( 'rental_labels', $labels );
+
+        $options = [
+            'label'               => __( 'Rentals', 'seq-pac-plugin' ),
+            'labels'              => $labels,
+            'description'         => __( 'Custom post type description.', 'seq-pac-plugin' ),
+            'public'              => true,
+            'publicly_queryable'  => true,
+            'show_ui'             => true,
+            'show_in_rest'        => false,
+            'rest_base'           => 'rental_rest_api',
+            'has_archive'         => true,
+            'show_in_menu'        => true,
+            'exclude_from_search' => false,
+            'capability_type'     => 'post',
+            'map_meta_cap'        => true,
+            'hierarchical'        => false,
+            'rewrite'             => [
+                'slug'       => 'rentals',
+                'with_front' => true
+            ],
+            'query_var'           => 'rental',
+            'menu_position'       => 5,
+            'menu_icon'           => 'dashicons-list-view',
+            'supports'            => [
+                'title',
+                'editor',
+                'thumbnail',
+                'excerpt',
+                'trackbacks',
+                'custom-fields',
+                'comments',
+                'revisions',
+                'author',
+                'page-attributes',
+                'post-formats'
+            ],
+            'taxonomies'          => [
+                'rental_location',
+                'post_tag'
+            ],
+        ];
+
+        // Apply a filter to arguments for customization.
+        $options = apply_filters( 'rental_args', $options );
+
+        // Register the post type.
         register_post_type(
-            'spp_post_type',
+            'rental',
             $options
         );
 
@@ -155,4 +230,4 @@ final class Post_Types_Register {
 }
 
 // Run the class.
-$spp_post_types = new Post_Types_Register;
+$listings = new Post_Types_Register;

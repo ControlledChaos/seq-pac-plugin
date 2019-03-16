@@ -1,6 +1,6 @@
 <?php
 /**
- * Register taxonomies.
+ * Register listing-locations.
  *
  * @package    Sequoia_Pacific_Realty_Plugin
  * @subpackage Includes\Post_Types_Taxes
@@ -19,7 +19,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Register taxonomies.
+ * Register listing-locations.
  *
  * @since  1.0.0
  * @access public
@@ -35,13 +35,13 @@ final class Taxes_Register {
 	 */
 	public function __construct() {
 
-        // Register custom taxonomies.
+        // Register custom listing-locations.
 		add_action( 'init', [ $this, 'register' ] );
 
 	}
 
     /**
-     * Register custom taxonomies.
+     * Register custom listing-locations.
      *
      * @since  1.0.0
 	 * @access public
@@ -50,55 +50,49 @@ final class Taxes_Register {
     public function register() {
 
         /**
-         * Taxonomy: Sample taxonomy (Taxonomy).
-         *
-         * Renaming:
-         * Search case "Taxonomy" and replace with your post type singular name.
-         * Search case "Taxonomies" and replace with your post type plural name.
-         * Search case "spp_taxonomy" and replace with your taxonomy database name.
-         * Search case "taxonomies" and replace with your taxonomy permalink slug.
+         * Taxonomy: Locations
          */
 
         $labels = [
-            'name'                       => __( 'Taxonomies', 'seq-pac-plugin' ),
-            'singular_name'              => __( 'Taxonomy', 'seq-pac-plugin' ),
-            'menu_name'                  => __( 'Taxonomy', 'seq-pac-plugin' ),
-            'all_items'                  => __( 'All Taxonomies', 'seq-pac-plugin' ),
-            'edit_item'                  => __( 'Edit Taxonomy', 'seq-pac-plugin' ),
-            'view_item'                  => __( 'View Taxonomy', 'seq-pac-plugin' ),
-            'update_item'                => __( 'Update Taxonomy', 'seq-pac-plugin' ),
-            'add_new_item'               => __( 'Add New Taxonomy', 'seq-pac-plugin' ),
-            'new_item_name'              => __( 'New Taxonomy', 'seq-pac-plugin' ),
-            'parent_item'                => __( 'Parent Taxonomy', 'seq-pac-plugin' ),
-            'parent_item_colon'          => __( 'Parent Taxonomy', 'seq-pac-plugin' ),
-            'popular_items'              => __( 'Popular Taxonomies', 'seq-pac-plugin' ),
-            'separate_items_with_commas' => __( 'Separate Taxonomies with commas', 'seq-pac-plugin' ),
-            'add_or_remove_items'        => __( 'Add or Remove Taxonomies', 'seq-pac-plugin' ),
-            'choose_from_most_used'      => __( 'Choose from the most used Taxonomies', 'seq-pac-plugin' ),
-            'not_found'                  => __( 'No Taxonomies Found', 'seq-pac-plugin' ),
-            'no_terms'                   => __( 'No Taxonomies', 'seq-pac-plugin' ),
-            'items_list_navigation'      => __( 'Taxonomies List Navigation', 'seq-pac-plugin' ),
-            'items_list'                 => __( 'Taxonomies List', 'seq-pac-plugin' )
+            'name'                       => __( 'Locations', 'seq-pac-plugin' ),
+            'singular_name'              => __( 'Location', 'seq-pac-plugin' ),
+            'menu_name'                  => __( 'Location', 'seq-pac-plugin' ),
+            'all_items'                  => __( 'All Locations', 'seq-pac-plugin' ),
+            'edit_item'                  => __( 'Edit Location', 'seq-pac-plugin' ),
+            'view_item'                  => __( 'View Location', 'seq-pac-plugin' ),
+            'update_item'                => __( 'Update Location', 'seq-pac-plugin' ),
+            'add_new_item'               => __( 'Add New Location', 'seq-pac-plugin' ),
+            'new_item_name'              => __( 'New Location', 'seq-pac-plugin' ),
+            'parent_item'                => __( 'Parent Location', 'seq-pac-plugin' ),
+            'parent_item_colon'          => __( 'Parent Location', 'seq-pac-plugin' ),
+            'popular_items'              => __( 'Popular Locations', 'seq-pac-plugin' ),
+            'separate_items_with_commas' => __( 'Separate Locations with commas', 'seq-pac-plugin' ),
+            'add_or_remove_items'        => __( 'Add or Remove Locations', 'seq-pac-plugin' ),
+            'choose_from_most_used'      => __( 'Choose from the most used Locations', 'seq-pac-plugin' ),
+            'not_found'                  => __( 'No Locations Found', 'seq-pac-plugin' ),
+            'no_terms'                   => __( 'No Locations', 'seq-pac-plugin' ),
+            'items_list_navigation'      => __( 'Locations List Navigation', 'seq-pac-plugin' ),
+            'items_list'                 => __( 'Locations List', 'seq-pac-plugin' )
         ];
 
         $options = [
-            'label'              => __( 'Taxonomies', 'seq-pac-plugin' ),
+            'label'              => __( 'Locations', 'seq-pac-plugin' ),
             'labels'             => $labels,
             'public'             => true,
             'hierarchical'       => false,
-            'label'              => 'Taxonomies',
+            'label'              => 'Locations',
             'show_ui'            => true,
             'show_in_menu'       => true,
             'show_in_nav_menus'  => true,
             'query_var'          => true,
             'rewrite'            => [
-                'slug'         => 'taxonomies',
+                'slug'         => 'locations',
                 'with_front'   => true,
                 'hierarchical' => false,
             ],
             'show_admin_column'  => true,
             'show_in_rest'       => true,
-            'rest_base'          => 'taxonomies',
+            'rest_base'          => 'locations',
             'show_in_quick_edit' => true
         ];
 
@@ -106,9 +100,10 @@ final class Taxes_Register {
          * Register the taxonomy
          */
         register_taxonomy(
-            'spp_taxonomy',
+            'location',
             [
-                'spp_post_type' // Change to your post type name.
+                'listing',
+                'rental'
             ],
             $options
         );
