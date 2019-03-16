@@ -353,7 +353,7 @@ function spp_about_link( $links ) {
 			sprintf(
 				'<a href="%1s" class="' . SPP_ADMIN_SLUG . '-page-link">%2s</a>',
 				admin_url( 'plugins.php?page=' . SPP_ADMIN_SLUG . '-page' ),
-				esc_attr( 'Documentation', 'seq-pac-plugin' )
+				esc_attr( 'Info', 'seq-pac-plugin' )
 			),
 		];
 
@@ -432,14 +432,6 @@ function spp_settings_links( $links, $file ) {
 				'<a href="%1s" class="' . SPP_ADMIN_SLUG . '-scripts-link">%2s</a>',
 				admin_url( 'options-general.php?page=' . SPP_ADMIN_SLUG . '-scripts' ),
 				esc_attr( 'Script Options', 'seq-pac-plugin' )
-			);
-
-			// Add a placeholder for an upgrade link.
-			$links[] = sprintf(
-				'<a href="%1s" title="%2s" class="' . SPP_ADMIN_SLUG . '-upgrade-link" style="color: #888; cursor: default;">%3s</a>',
-				''/* Add upgrade URL here */,
-				__( 'Upgrade not available', 'seq-pac-plugin' ),
-				esc_attr( 'Upgrade', 'seq-pac-plugin' )
 			);
 
 		}
