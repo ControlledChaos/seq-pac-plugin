@@ -149,7 +149,6 @@ final class Settings_Fields_ACF {
 							'id'    => '',
 						],
 						'choices'           => [
-							'gutenberg' => __( 'Try Gutenberg', 'seq-pac-plugin' ),
 							'welcome'   => __( 'Welcome', 'seq-pac-plugin' ),
 							'news'      => __( 'WordPress News', 'seq-pac-plugin' ),
 							'quick'     => __( 'Quick Press', 'seq-pac-plugin' ),
@@ -522,7 +521,7 @@ final class Settings_Fields_ACF {
 
 					[
 						'key'               => 'field_5a1989a036067',
-						'label'             => __( 'Meta/SEO', 'seq-pac-plugin' ),
+						'label'             => __( 'Meta & SEO', 'seq-pac-plugin' ),
 						'name'              => '',
 						'type'              => 'tab',
 						'instructions'      => __( '', 'seq-pac-plugin' ),
@@ -535,6 +534,25 @@ final class Settings_Fields_ACF {
 						],
 						'placement'         => 'top',
 						'endpoint'          => 0,
+					],
+					[
+						'key'               => 'field_5c8fa114ff677',
+						'label'             => __( 'Map API key', 'seq-pac-plugin' ),
+						'name'              => 'sp_map_api_key',
+						'type'              => 'text',
+						'instructions'      => __( '', 'seq-pac-plugin' ),
+						'required'          => 0,
+						'conditional_logic' => 0,
+						'wrapper'           => [
+							'width' => '',
+							'class' => '',
+							'id'    => '',
+						],
+						'default_value'     => __( '', 'seq-pac-plugin' ),
+						'placeholder'       => __( '', 'seq-pac-plugin' ),
+						'prepend'           => __( '', 'seq-pac-plugin' ),
+						'append'            => __( '', 'seq-pac-plugin' ),
+						'maxlength'         => '',
 					],
 					[
 						'key'               => 'field_5a237090744c4',

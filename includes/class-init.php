@@ -68,6 +68,11 @@ final class Init {
 		remove_filter( 'the_content', 'capital_P_dangit', 11 );
 		remove_filter( 'comment_text', 'capital_P_dangit', 31 );
 
+		// Add Google Maps API key to ACF.
+		if ( spp_acf_pro() ) {
+			add_action( 'acf/init', [ $this, 'my_acf_init' ] );
+		}
+
 	}
 
 	/**
@@ -99,6 +104,27 @@ final class Init {
 
 		// Dev and maintenance tools.
 		require_once SPP_PATH . 'includes/tools/class-tools.php';
+
+	}
+
+	/**
+	 * Add Google Maps API key to ACF
+	 *
+	 * Gets the key from the Site Settings page & field group.
+	 * At the time of writing this plugin the key for Sequoia Pacific
+	 * Realty is: AIzaSyB3VtqO9Yf6rykTf48_9eQ1SILCtiJ6J2Y
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function my_acf_init() {
+
+		// Get the API key field.
+		$google_api_key = get_field( 'sp_map_api_key', 'option' );
+
+		// Update the API key setting.
+		acf_update_setting( 'google_api_key', esc_html( $google_api_key ) );
 
 	}
 
