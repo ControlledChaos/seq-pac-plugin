@@ -111,6 +111,7 @@ final class Init {
 	 * Add Google Maps API key to ACF
 	 *
 	 * Gets the key from the Site Settings page & field group.
+	 *
 	 * At the time of writing this plugin the key for Sequoia Pacific
 	 * Realty is: AIzaSyB3VtqO9Yf6rykTf48_9eQ1SILCtiJ6J2Y
 	 *
