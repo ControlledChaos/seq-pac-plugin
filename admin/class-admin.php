@@ -124,16 +124,6 @@ class Admin {
 			include_once SPP_PATH . 'admin/class-settings-fields-site-acf.php';
 		}
 
-		// Restore the TinyMCE editor.
-		if ( spp_acf_pro() ) {
-			$editor = get_field( 'spp_classic_editor', 'option' );
-		} else {
-			$editor = get_option( 'spp_classic_editor' );
-		}
-		if ( ( spp_classicpress() || spp_new_cms() ) && $editor ) {
-			include_once SPP_PATH . 'admin/classic-editor/classic-editor.php';
-		}
-
 		// Functions for dasboard widgets, excluding the welcome panel.
 		require_once SPP_PATH . 'admin/dashboard/class-dashboard.php';
 
@@ -145,11 +135,6 @@ class Admin {
 
 		// Functions for various admin pages and edit screens.
 		require_once SPP_PATH . 'admin/class-admin-pages.php';
-
-		// Import custom fields for editing, if ACF Pro is active.
-		if ( spp_acf_options() ) {
-			include_once SPP_PATH . 'admin/class-fields-import.php';
-		}
 
 		// Filter by page template.
 		require_once SPP_PATH . 'admin/class-admin-template-filter.php';

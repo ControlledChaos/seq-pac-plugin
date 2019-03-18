@@ -115,17 +115,11 @@ final class Post_Types_Register {
                 'title',
                 'editor',
                 'thumbnail',
-                'excerpt',
-                'trackbacks',
-                'custom-fields',
-                'comments',
-                'revisions',
-                'author',
-                'page-attributes',
-                'post-formats'
+                'page-attributes'
             ],
             'taxonomies'          => [
                 'listing_location',
+                'listing_type',
                 'post_tag'
             ],
         ];
@@ -201,17 +195,11 @@ final class Post_Types_Register {
                 'title',
                 'editor',
                 'thumbnail',
-                'excerpt',
-                'trackbacks',
-                'custom-fields',
-                'comments',
-                'revisions',
-                'author',
-                'page-attributes',
-                'post-formats'
+                'page-attributes'
             ],
             'taxonomies'          => [
                 'rental_location',
+                'listing_type',
                 'post_tag'
             ],
         ];
