@@ -88,9 +88,6 @@ class Settings_Fields_Site {
 		// Settings for the Admin Menu tab.
 		require SPP_PATH . 'admin/class-settings-fields-site-admin-pages.php';
 
-		// Settings for the Admin Menu tab.
-		require SPP_PATH . 'admin/class-settings-fields-site-users.php';
-
 		// Callbacks for the Meta/SEO tab.
 		require SPP_PATH . 'admin/class-settings-fields-site-meta-seo.php';
 

@@ -86,9 +86,6 @@ class Dashboard {
 	 */
 	private function dependencies() {
 
-        // Get the dashboard widget class.
-        require SPP_PATH . 'admin/dashboard/class-dashboard-widget.php';
-
         // Get the welcome panel class.
         require SPP_PATH . 'admin/dashboard/class-welcome.php';
 

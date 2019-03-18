@@ -172,7 +172,7 @@ class Admin {
 		global $pagenow;
 
 		// Redirect if user is on the theme or plugin editor page.
-		if ( $pagenow == 'plugin-editor.php' || $pagenow == 'theme-editor.php' ) {
+		if ( $pagenow == 'edit.php' || $pagenow == 'plugin-editor.php' || $pagenow == 'theme-editor.php' ) {
 			wp_redirect( admin_url( '/', 'http' ), 302 );
 			exit;
 		}

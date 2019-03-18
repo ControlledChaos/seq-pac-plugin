@@ -99,6 +99,9 @@ final class Init {
 		// Post types and taxonomies.
 		require_once SPP_PATH . 'includes/post-types-taxes/class-post-type-tax.php';
 
+		// Remove all comment support.
+		require_once SPP_PATH . 'includes/class-remove-comments.php';
+
 	}
 
 	/**

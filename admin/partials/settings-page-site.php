@@ -61,14 +61,6 @@ $tabs = [
         esc_html__( 'Admin Pages', 'seq-pac-plugin' )
     ),
 
-    // Users tab.
-    sprintf(
-        '<a href="?page=%1s-settings&tab=users" class="nav-tab %2s"><span class="dashicons dashicons-admin-users"></span> %3s</a>',
-        SPP_ADMIN_SLUG,
-        $active_tab == 'users' ? 'nav-tab-active' : '',
-        esc_html__( 'Site Users', 'seq-pac-plugin' )
-    ),
-
     // Meta/SEO tab.
     sprintf(
         '<a href="?page=%1s-settings&tab=meta-seo" class="nav-tab %2s"><span class="dashicons dashicons-tag"></span> %3s</a>',
@@ -97,9 +89,6 @@ if ( 'dashboard' == $active_tab  ) {
 } elseif ( 'admin-pages' == $active_tab ) {
     $section = 'spp-site-admin-pages';
     $fields  = 'spp-site-admin-pages';
-} elseif ( 'users' == $active_tab ) {
-    $section = 'spp-site-users';
-    $fields  = 'spp-site-users';
 } elseif ( 'meta-seo' == $active_tab ) {
     $section = 'spp-site-meta-seo';
     $fields  = 'spp-site-meta-seo';
@@ -124,8 +113,6 @@ if ( 'dashboard' == $active_tab  ) {
     $save = __( 'Save Menu', 'seq-pac-plugin' );
 } elseif ( 'admin-pages' == $active_tab ) {
     $save = __( 'Save Pages', 'seq-pac-plugin' );
-} elseif ( 'users' == $active_tab ) {
-    $save = __( 'Save Users', 'seq-pac-plugin' );
 } elseif ( 'meta-seo' == $active_tab ) {
     $save = __( 'Save Meta', 'seq-pac-plugin' );
 } else {

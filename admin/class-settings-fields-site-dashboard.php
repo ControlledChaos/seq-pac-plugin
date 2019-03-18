@@ -122,21 +122,6 @@ class Settings_Fields_Site_Dashboard {
 			'spp_custom_welcome'
 		);
 
-		// Hide the try Gutenberg panel.
-		add_settings_field(
-			'spp_hide_try_gutenberg',
-			__( 'Hide Try Gutenberg', 'seq-pac-plugin' ),
-			[ Callbacks::instance(), 'hide_try_gutenberg' ],
-			'spp-site-dashboard',
-			'spp-site-dashboard',
-			[ esc_html__( 'Hide the "Try Gutenberg" panel on the Dashboard', 'seq-pac-plugin' ) ]
-		);
-
-		register_setting(
-			'spp-site-dashboard',
-			'spp_hide_try_gutenberg'
-		);
-
 		// Hide the welcome panel.
 		add_settings_field(
 			'spp_hide_welcome',

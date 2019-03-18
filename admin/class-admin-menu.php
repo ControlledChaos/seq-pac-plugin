@@ -57,6 +57,9 @@ class Admin_Menu {
 	 */
     public function __construct() {
 
+        // Remove Posts from the menu.
+        add_action('admin_menu', [ $this, 'post_remove' ] );
+
         // Remove menu items.
         add_action( 'admin_menu', [ $this, 'hide' ] );
 
@@ -97,6 +100,19 @@ class Admin_Menu {
 
         // Set the user capability for the pages.
         add_filter( 'user_has_cap', [ $this, 'set_capability' ], 20, 4 );
+
+    }
+
+    /**
+     * Remove Posts from the menu
+     *
+     * @since  1.0.0
+	 * @access public
+	 * @return void
+     */
+    public function post_remove () {
+
+        remove_menu_page( 'edit.php' );
 
     }
 

@@ -105,21 +105,6 @@ class Settings_Fields_Site_Admin_Pages {
 			'spp-site-admin-pages'
 		);
 
-		// Restore the TinyMCE editor.
-		add_settings_field(
-			'spp_classic_editor',
-			__( 'Classic Editor', 'seq-pac-plugin' ),
-			[ Partials\Field_Callbacks\Admin_Pages_Callbacks::instance(), 'classic_editor' ],
-			'spp-site-admin-pages',
-			'spp-site-admin-pages',
-			[ esc_html__( 'Disable the block editor (a.k.a. Gutenberg) and restore the TinyMCE editor.', 'seq-pac-plugin' ) ]
-		);
-
-		register_setting(
-			'spp-site-admin-pages',
-			'spp_classic_editor'
-		);
-
 		// Use the admin header.
 		add_settings_field(
 			'spp_use_admin_header',

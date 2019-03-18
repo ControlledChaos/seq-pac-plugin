@@ -150,51 +150,6 @@ class Settings_Fields_Site_Admin_Menu {
 			'spp_site_settings_link_icon'
 		);
 
-		// Site Plugin page position.
-		add_settings_field(
-			'spp_site_plugin_link_position',
-			__( 'Site Plugin Position', 'seq-pac-plugin' ),
-			[ Partials\Field_Callbacks\Admin_Menu_Callbacks::instance(), 'site_plugin_position' ],
-			'spp-site-admin-menu',
-			'spp-site-admin-menu',
-			[ esc_html__( 'Make the site-specific plugin admin page a top-level link.', 'seq-pac-plugin' ) ]
-		);
-
-		register_setting(
-			'spp-site-admin-menu',
-			'spp_site_plugin_link_position'
-		);
-
-		// Site Plugin page link label.
-		add_settings_field(
-			'spp_site_plugin_link_label',
-			__( 'Site Plugin Label', 'seq-pac-plugin' ),
-			[ Partials\Field_Callbacks\Admin_Menu_Callbacks::instance(), 'site_plugin_link_label' ],
-			'spp-site-admin-menu',
-			'spp-site-admin-menu',
-			[ esc_html__( 'Change the label of the link to the site-specific plugin page', 'seq-pac-plugin' ) ]
-		);
-
-		register_setting(
-			'spp-site-admin-menu',
-			'spp_site_plugin_link_label'
-		);
-
-		// Site Plugin page link icon if set to top level.
-		add_settings_field(
-			'spp_site_plugin_link_icon',
-			__( 'Site Plugin Icon', 'seq-pac-plugin' ),
-			[ Partials\Field_Callbacks\Admin_Menu_Callbacks::instance(), 'site_plugin_link_icon' ],
-			'spp-site-admin-menu',
-			'spp-site-admin-menu',
-			[ esc_html__( 'Enter a Dashicons CSS class for the icon of the link to the site-specific plugin page', 'seq-pac-plugin' ) ]
-		);
-
-		register_setting(
-			'spp-site-admin-menu',
-			'spp_site_plugin_link_icon'
-		);
-
 		// Menus link position.
 		add_settings_field(
 			'spp_menus_position',
