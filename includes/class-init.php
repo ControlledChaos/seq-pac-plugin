@@ -99,12 +99,6 @@ final class Init {
 		// Post types and taxonomies.
 		require_once SPP_PATH . 'includes/post-types-taxes/class-post-type-tax.php';
 
-		// User funtionality.
-		require_once SPP_PATH . 'includes/users/class-users.php';
-
-		// Dev and maintenance tools.
-		require_once SPP_PATH . 'includes/tools/class-tools.php';
-
 	}
 
 	/**

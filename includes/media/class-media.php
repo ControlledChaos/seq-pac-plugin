@@ -63,6 +63,9 @@ class Media {
 		// Add image sizes.
 		add_action( 'init', [ $this, 'image_sizes' ] );
 
+		// Add image sizes to media UI.
+		add_filter( 'image_size_names_choose', [ $this, 'insert_custom_image_sizes' ] );
+
 		// Add Fancybox data attributes to image links in the content.
 		add_filter( 'the_content', [ $this, 'fancybox_single_images' ], 2 );
 
@@ -108,15 +111,64 @@ class Media {
 	 */
 	public function image_sizes() {
 
+		// 1:1 Square.
+		add_image_size( __( 'thumbnail-large', 'gp-www-one' ), 240, 240, true );
+		add_image_size( __( 'thumbnail-xlarge', 'gp-www-one' ), 320, 320, true );
+
+		// 16:9 HD Video.
+		add_image_size( __( 'wide-large', 'gp-www-one' ), 1280, 720, true );
+		add_image_size( __( 'wide-medium', 'gp-www-one' ), 960, 540, true );
+		add_image_size( __( 'wide-small', 'gp-www-one' ), 640, 360, true );
+
+		// 21:9 Cinemascope.
+		add_image_size( __( 'banner-large', 'gp-www-one' ), 1280, 549, true );
+		add_image_size( __( 'banner-medium', 'gp-www-one' ), 960, 411, true );
+		add_image_size( __( 'banner-small', 'gp-www-one' ), 640, 274, true );
+
 		// For link embedding and sharing on social sites.
-		add_image_size( __( 'Meta Image', 'seq-pac-plugin' ), 1200, 630, true );
+		add_image_size( __( 'meta-image', 'seq-pac-plugin' ), 1200, 630, true );
 
 		/**
 		 * For use as featured image in admin columns.
 		 *
 		 * @see admin/class-admin-pages.php
 		 */
-		add_image_size( __( 'Column Thumbnail', 'seq-pac-plugin' ), 48, 48, true );
+		add_image_size( __( 'column-thumbnail', 'seq-pac-plugin' ), 48, 48, true );
+
+	}
+
+	/**
+	 * Add image sizes to media UI
+	 *
+	 * Adds custom image sizes to "Insert Media" user interface
+	 * and adds custom class to the `<img>` tag.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  array $sizes Gets the array of image size names.
+	 * @global array $_wp_additional_image_sizes Gets the array of custom image size names.
+	 * @return array $sizes Returns an array of image size names.
+	 */
+	public function insert_custom_image_sizes( $sizes ) {
+
+		// Access global variables.
+		global $_wp_additional_image_sizes;
+
+		// Return default sizes if no custom sizes.
+		if ( empty( $_wp_additional_image_sizes ) ) {
+			return $sizes;
+		}
+
+		// Capitalize custom image size names and remove hyphens.
+		foreach ( $_wp_additional_image_sizes as $id => $data ) {
+
+			if ( ! isset( $sizes[$id] ) ) {
+				$sizes[$id] = ucwords( str_replace( [ '-', '_' ], ' ', $id ) );
+			}
+		}
+
+		// Return the modified array of sizes.
+		return $sizes;
 
 	}
 
