@@ -228,6 +228,14 @@ class Admin_Pages {
         } elseif ( 'page' == $screen->post_type ) {
             $post_title = esc_html__( 'Page Title', 'seq-pac-plugin' );
 
+        // Post type: listing.
+        } elseif ( 'listing' == $screen->post_type ) {
+        $post_title = esc_html__( 'Listing Page Title', 'seq-pac-plugin' );
+
+        // Post type: rental.
+        } elseif ( 'rental' == $screen->post_type ) {
+        $post_title = esc_html__( 'Rental Page Title', 'seq-pac-plugin' );
+
         // Post type: attachment.
         } elseif ( $screen->post_type == 'attachment' ) {
             $post_title = null;
