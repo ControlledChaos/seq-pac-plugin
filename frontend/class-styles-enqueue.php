@@ -74,7 +74,7 @@ class Enqueue_Frontend_Styles {
 	public function styles() {
 
 		// Non-vendor plugin styles.
-		wp_enqueue_style( SPP_ADMIN_SLUG, SPP_URL . 'assets/css/frontend.css', [], SPP_VERSION, 'all' );
+		// wp_enqueue_style( SPP_ADMIN_SLUG, SPP_URL . 'assets/css/frontend.css', [], SPP_VERSION, 'all' );
 
 		// Fancybox 3.
 		if ( get_option( 'spp_enqueue_fancybox_styles' ) ) {
