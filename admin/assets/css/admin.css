@@ -4,10 +4,6 @@
  *
  * @todo Nest this properly.
  */
-
-.wrap.posts-per-page {
-	max-width: 1024px;
-}
 /**
  * Admin Header
  */
@@ -19,9 +15,26 @@
   margin-top: 0;
 }
 
+.ccp-admin-header .admin-navigation .admin-navigation-list {
+  margin-bottom: 0;
+}
+
 .ccp-admin-header .admin-navigation .admin-navigation-list li {
   display: inline;
   margin-right: 0.75em;
+}
+
+/**
+ * Dashboard
+ */
+#dashboard_right_now .post-count.listing-count a:before,
+#dashboard_right_now .post-count.listing-count span:before {
+  content: '\f164';
+}
+
+#dashboard_right_now .post-count.rental-count a:before,
+#dashboard_right_now .post-count.rental-count span:before {
+  content: '\f163';
 }
 
 /**

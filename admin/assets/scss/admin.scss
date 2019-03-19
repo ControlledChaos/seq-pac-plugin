@@ -38,6 +38,22 @@
 }
 
 /**
+ * Dashboard
+ */
+#dashboard_right_now {
+
+	.post-count.listing-count a:before,
+	.post-count.listing-count span:before {
+		content: '\f164';
+	}
+
+	.post-count.rental-count a:before,
+	.post-count.rental-count span:before {
+		content: '\f163';
+	}
+}
+
+/**
  * Plugins
  *
  * For the installed plugins and the add new plugins screens.
