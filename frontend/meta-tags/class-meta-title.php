@@ -75,19 +75,6 @@ class Meta_Title {
 		// Get the current posts for author archives.
 		global $post;
 
-		// Get the author ID.
-		$author_id = $post->post_author;
-
-		// Custom author title.
-		$author_title = sprintf(
-			'%1s %2s',
-			__( 'Posts by', 'seq-pac-plugin' ),
-			get_the_author_meta( 'display_name', $author_id )
-		);
-
-		// Apply a filter to author archive title.
-		$author_meta = apply_filters( 'spp_author_meta_title', $author_title );
-
 		// Custom search title.
 		$search_title = sprintf(
 			'%1s %2s',
@@ -105,10 +92,6 @@ class Meta_Title {
 		// Use the Posts Page title for the blog index.
 		} elseif ( is_home() ) {
 			$title = esc_html( get_the_title( get_option( 'page_for_posts' ) ) );
-
-		// Use custom text for author pages.
-		} elseif ( is_author() ) {
-			$title = esc_html( $author_meta );
 
 		// Use the acrhive title for the acrhive pages.
 		} elseif ( is_archive() ) {
