@@ -114,11 +114,6 @@ class Admin {
 		// The core settings class for the plugin.
 		require_once SPP_PATH . 'admin/class-settings.php';
 
-		// Add icons to the titles of ACF tab and accordion fields, if active.
-		if ( spp_acf_pro() && ! get_option( 'spp_acf_activate_settings_page' ) ) {
-			include_once SPP_PATH . 'admin/class-acf-tab-icons.php';
-		}
-
 		// Include custom fields for Advanced Custom Fields Pro, if active.
 		if ( spp_acf_pro() ) {
 			include_once SPP_PATH . 'admin/class-settings-fields-site-acf.php';
@@ -158,7 +153,10 @@ class Admin {
 	}
 
 	/**
-	 * Redirect theme & plugin editor pages.
+	 * Admin page redirects
+	 *
+	 * Redirects theme & plugin editor pages as well as the management page
+	 * for the default post type `post`.
 	 *
 	 * A temporary redirect to the dashboard is created.
 	 *
@@ -172,7 +170,12 @@ class Admin {
 		global $pagenow;
 
 		// Redirect if user is on the theme or plugin editor page.
-		if ( $pagenow == 'edit.php' || $pagenow == 'plugin-editor.php' || $pagenow == 'theme-editor.php' ) {
+		if ( $pagenow == 'plugin-editor.php' || $pagenow == 'theme-editor.php' ) {
+			wp_redirect( admin_url( '/', 'http' ), 302 );
+			exit;
+
+		// Redirect if on the posts page.
+		} elseif ( in_array( $pagenow, array( 'edit.php' ) ) && ( empty( $_GET['post_type'] ) || ( $_GET['post_type'] == 'post' ) ) ) {
 			wp_redirect( admin_url( '/', 'http' ), 302 );
 			exit;
 		}

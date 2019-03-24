@@ -129,6 +129,9 @@ class Admin_Menu {
      */
     public function hide() {
 
+        // Always hide the links.
+        remove_menu_page( 'link-manager.php' );
+
         /**
          * If Advanced Custom Fields is active.
          */

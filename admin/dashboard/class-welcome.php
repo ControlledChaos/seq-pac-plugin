@@ -93,7 +93,7 @@ class Welcome {
 			add_action( 'welcome_panel', [ $this, 'welcome_panel' ], 25 );
 
 			// Register the welcome panel areas.
-			add_action( 'widgets_init', [ $this, 'widget_areas' ], 25 );
+			// add_action( 'widgets_init', [ $this, 'widget_areas' ], 25 );
 		}
 
 	}
