@@ -18,6 +18,8 @@ if ( ! defined( 'WPINC' ) ) {
 <meta name="title" content="<?php esc_attr( do_action( 'spp_meta_title_tag' ) ); ?>" />
 <?php if ( is_404() ) : ?>
 <meta name="description" content="404 <?php esc_attr( _e( 'Not Found' ) ); ?>" />
+<?php elseif ( is_archive() ) : ?>
+<meta name="description" content="<?php echo esc_attr( get_bloginfo( 'description' ) ); ?>" />
 <?php else : ?>
 <meta name="description" content="<?php esc_attr( do_action( 'spp_meta_description_tag' ) ); ?>" />
 <?php endif; ?>

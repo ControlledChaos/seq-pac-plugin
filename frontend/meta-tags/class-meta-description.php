@@ -158,8 +158,10 @@ class Meta_Description {
 		} elseif ( has_excerpt() ) {
 			$description = $manual_excerpt;
 		// Otherwise use the auto excerpt if no manual excerpt is found.
-		} else {
+		} elseif ( ! has_excerpt() ) {
 			$description = $auto_excerpt;
+		} else {
+			$description = $tagline_desc;
 		}
 
 		// Apply a filter for other use cases.

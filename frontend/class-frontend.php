@@ -81,6 +81,9 @@ class Frontend {
 		// Add Fancybox attributes to attachment page image link.
 		add_action( 'wp_footer', [ $this, 'attachment_fancybox' ] );
 
+		// Remove label from archive titles.
+		add_filter( 'get_the_archive_title', [ $this, 'archive_label' ] );
+
 	}
 
 	/**
@@ -193,6 +196,31 @@ class Frontend {
 			</script>
 
 		<?php }
+
+	}
+
+	/**
+	 * Remove prepended text from archive titles
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string
+	 */
+	public function archive_label( $title ) {
+
+		if ( is_category() ) {
+			$title = single_cat_title( '', false );
+		} elseif ( is_tag() ) {
+			$title = single_tag_title( '', false );
+		} elseif ( is_author() ) {
+			$title = '<span class="vcard">' . get_the_author() . '</span>';
+		} elseif ( is_post_type_archive() ) {
+			$title = post_type_archive_title( '', false );
+		} elseif ( is_tax() ) {
+			$title = single_term_title( '', false );
+		}
+
+		return $title;
 
 	}
 
