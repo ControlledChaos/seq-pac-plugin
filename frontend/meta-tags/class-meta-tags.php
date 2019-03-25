@@ -98,7 +98,7 @@ class Meta_Tags {
 	public function filter_title() {
 
 		if ( is_front_page() ) {
-			$title = __( 'Sequoia Pacific Realty - Real estate, vacation rentals, and property management for Three Rivers, Exeter, Visalia, Porterville, and Tulare County, California', 'seq-pac-plugin' );
+			$title = __( 'Three Rivers Real Estate | Homes & property for sale, vacation rentals, and property management for Three Rivers, Exeter, Visalia, Porterville, and Tulare County, California | Sequoia Pacific Realty', 'seq-pac-plugin' );
 
 			return $title;
 		}
