@@ -307,6 +307,7 @@ final class Settings_Fields_ACF {
 							'plugins' => __( 'Plugins', 'seq-pac-plugin' ),
 							'users'   => __( 'Users', 'seq-pac-plugin' ),
 							'tools'   => __( 'Tools', 'seq-pac-plugin' ),
+							'cache'   => __( 'Cache', 'seq-pac-plugin' ),
 							'fields'  => __( 'Custom Fields', 'seq-pac-plugin' ),
 						],
 						'allow_custom'      => 0,

@@ -61,7 +61,7 @@ class Admin_Menu {
         add_action('admin_menu', [ $this, 'post_remove' ] );
 
         // Remove menu items.
-        add_action( 'admin_menu', [ $this, 'hide' ] );
+        add_action( 'admin_menu', [ $this, 'hide' ], 999 );
 
         // Hide ACF field groups UI.
         if ( spp_acf_options() ) {
@@ -158,6 +158,13 @@ class Admin_Menu {
             // Hide Tools link.
             if ( $options && in_array( 'tools', $options ) ) {
                 remove_menu_page( 'tools.php' );
+			}
+
+			// Hide cache plugins.
+            if ( $options && in_array( 'cache', $options ) ) {
+
+				// WP Fastest Cache.
+                remove_menu_page( 'wpfastestcacheoptions' );
             }
 
         } else {
