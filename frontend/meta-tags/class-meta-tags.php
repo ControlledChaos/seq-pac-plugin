@@ -63,6 +63,9 @@ class Meta_Tags {
 		// Add meta tags to <head> if not disabled.
 		add_action( 'wp_head', [ $this, 'meta_tags' ] );
 
+		// Modify title tag text.
+		add_filter( 'pre_get_document_title', [ $this, 'filter_title' ] );
+
 	}
 
 		/**
@@ -82,6 +85,25 @@ class Meta_Tags {
 		include_once SPP_PATH . 'frontend/meta-tags/class-meta-date-published.php';
 		include_once SPP_PATH . 'frontend/meta-tags/class-meta-date-modified.php';
 		include_once SPP_PATH . 'frontend/meta-tags/class-meta-image.php';
+
+	}
+
+	/**
+	 * Modify title tag text
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the modified title tag text.
+	 */
+	public function filter_title() {
+
+		if ( is_front_page() ) {
+			$title = __( 'Sequoia Pacific Realty - Real estate, vacation rentals, and property management for Three Rivers, Exeter, Visalia, Porterville, and Tulare County, California', 'seq-pac-plugin' );
+
+			return $title;
+		}
+
+		return $title;
 
 	}
 

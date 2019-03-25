@@ -147,7 +147,7 @@ class Meta_Description {
 
 		// Use the tagline for the front page.
 		if ( is_front_page() ) {
-			$description = $tagline_desc;
+			$description = __( 'Real estate, vacation rentals, and property management for Three Rivers, Exeter, Visalia, Porterville, and Tulare County, California', 'seq-pac-plugin' );
 		// Use the blog description established above for blog pages.
 		} elseif ( is_home() ) {
 			$description = $blog_desc;
