@@ -89,8 +89,9 @@ class Meta_Title {
 		if ( is_front_page() || is_404() ) {
 			$title = esc_html( get_bloginfo( 'name' ) );
 
-		// For listing and rental singular if ACF is active.
+		// For singular listing if ACF is active.
 		} elseif ( spp_acf() && is_singular( 'listing' ) ) {
+
 			$location = get_field( 'spl_post_office' );
 			if ( $location ) {
 				$title = sprintf(
@@ -103,9 +104,14 @@ class Meta_Title {
 				);
 			}
 
-		// For listing and rental singular if ACF is not active.
+		// For singular listing if ACF is not active.
 		} elseif ( is_singular( 'listing' ) ) {
-			esc_html( get_the_title() );
+
+			$title = sprintf(
+				'%1s %2s',
+				__( 'For Sale:', 'seq-pac-plugin' ),
+				esc_html( get_the_title() )
+			);
 
 		// Use the Posts Page title for the blog index.
 		} elseif ( is_home() ) {
