@@ -148,6 +148,20 @@ class Meta_Description {
 		// Use the tagline for the front page.
 		if ( is_front_page() ) {
 			$description = __( 'Real Estate, Property Management & Vacation Rentals | Three Rivers, California', 'seq-pac-plugin' );
+		// For listing and rental singular if ACF is active.
+		} elseif ( spp_acf() && ( is_singular( 'listing' ) || is_singular( 'rental' ) ) ) {
+			$price   = get_field( 'spl_sale_price' );
+			$summary = get_field( 'spl_summary' );
+			if ( $summary ) {
+				$description = '$' . $price . ' - ' . $summary;
+			} else {
+				$description = __( 'Please visit SequoiaPacificRealy.com for details and to schedule an appointment.', 'seq-pac-plugin' );
+			}
+
+		// For listing and rental singular if ACF is not active.
+		} elseif ( is_singular( 'listing' ) || is_singular( 'rental' ) ) {
+			$description = __( 'Please visit SequoiaPacificRealy.com for details and to schedule an appointment.', 'seq-pac-plugin' );
+
 		// Use the blog description established above for blog pages.
 		} elseif ( is_home() ) {
 			$description = $blog_desc;

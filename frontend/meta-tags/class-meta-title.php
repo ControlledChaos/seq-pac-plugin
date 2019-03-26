@@ -89,6 +89,24 @@ class Meta_Title {
 		if ( is_front_page() || is_404() ) {
 			$title = esc_html( get_bloginfo( 'name' ) );
 
+		// For listing and rental singular if ACF is active.
+		} elseif ( spp_acf() && is_singular( 'listing' ) ) {
+			$location = get_field( 'spl_post_office' );
+			if ( $location ) {
+				$title = sprintf(
+					'%1s %2s%3s%4s%5s',
+					__( 'For Sale:', 'seq-pac-plugin' ),
+					esc_html( get_the_title() ),
+					' | ',
+					$location,
+					__( ', California', 'seq-pac-plugin' )
+				);
+			}
+
+		// For listing and rental singular if ACF is not active.
+		} elseif ( is_singular( 'listing' ) ) {
+			esc_html( get_the_title() );
+
 		// Use the Posts Page title for the blog index.
 		} elseif ( is_home() ) {
 			$title = esc_html( get_the_title( get_option( 'page_for_posts' ) ) );
