@@ -103,8 +103,6 @@ class Meta_Tags {
 			return $title;
 		}
 
-		return $title;
-
 	}
 
 	/**
