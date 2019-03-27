@@ -214,6 +214,10 @@ class Frontend {
 			$title = single_tag_title( '', false );
 		} elseif ( is_author() ) {
 			$title = '<span class="vcard">' . get_the_author() . '</span>';
+		} elseif ( is_post_type_archive( 'listing' ) ) {
+			$title = __( 'Properties For Sale', 'seq-pac-plugin' );
+		} elseif ( is_post_type_archive( 'rental' ) ) {
+			$title = __( 'Properties For Rent', 'seq-pac-plugin' );
 		} elseif ( is_post_type_archive() ) {
 			$title = post_type_archive_title( '', false );
 		} elseif ( is_tax() ) {
