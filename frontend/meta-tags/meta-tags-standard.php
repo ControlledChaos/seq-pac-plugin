@@ -23,6 +23,7 @@ if ( ! defined( 'WPINC' ) ) {
 <?php else : ?>
 <meta name="description" content="<?php esc_attr( do_action( 'spp_meta_description_tag' ) ); ?>" />
 <?php endif; ?>
+<meta name="thumbnail" content="<?php esc_attr( do_action( 'spp_meta_image_tag' ) ); ?>" />
 <?php if ( is_singular() ) : ?>
 <meta name="author" content="<?php esc_attr( do_action( 'spp_meta_author_tag' ) ); ?>" />
 <?php endif; ?>
