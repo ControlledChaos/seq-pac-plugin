@@ -66,6 +66,9 @@ class Frontend {
 	 */
 	public function __construct() {
 
+		// Matomo analytics code.
+		add_action( 'wp_head', [ $this, 'analytics' ], 99 );
+
 		// Deregister Dashicons for users not logged in.
 		add_action( 'wp_enqueue_scripts', [ $this, 'deregister_dashicons' ] );
 
@@ -124,6 +127,33 @@ class Frontend {
 		include_once SPP_PATH . 'frontend/meta-tags/class-meta-tags.php';
 
 	}
+
+	/**
+	 * Matomo analytics code.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the JavaScript necessary for tracking.
+	 */
+	public function analytics() { ?>
+
+		<!-- Matomo -->
+		<script type="text/javascript">
+		var _paq = window._paq || [];
+		/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+		_paq.push(['trackPageView']);
+		_paq.push(['enableLinkTracking']);
+		(function() {
+			var u="//sequoiapacificrealty.com/stats/";
+			_paq.push(['setTrackerUrl', u+'matomo.php']);
+			_paq.push(['setSiteId', '1']);
+			var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+			g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+		})();
+		</script>
+		<!-- End Matomo Code -->
+
+	<?php }
 
 	/**
 	 * Deregister Dashicons for users not logged in.
